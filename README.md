@@ -1,2 +1,0 @@
-# Relentics
- Twitter sentimental analysis

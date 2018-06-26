@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% if message %}
+    <script>
+        alert({{ message }});
+    </script>
+{% endif %}
+
+{% block body %}
+
+    <style>
+.button {
+    background-color: black; /* Black */
+    border: none;
+    color: white;
+    padding: 11px 20px;
+    text-align: center;
+    text-decoration: white;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+    </style>
+    <div class="row">
+        <div id="input_hashtag" class="col s11">
+            <form method="get" action="{% url 'sentimenter:analyze' %} ">
+                {% csrf_token %}
+                <div class="input-field col s4 m3 l2 offset-s2 offset-m2 offset-l2">
+
+                    {{ hashtag.q }}
+                </div>
+                <br>
+                <button class="button" type="submit">Analyse
+                    <!--<i class="material-icons right">send</i>-->
+                </button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
